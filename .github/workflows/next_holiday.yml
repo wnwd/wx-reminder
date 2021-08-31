@@ -22,7 +22,7 @@ jobs:
         id: step_one
         env:
           send_key: ${{ secrets.SEND_KEY }}
-          send_api: ${{ secrets.SEND_URL }}
+          send_url: ${{ secrets.SEND_URL }}
         run: |
           python next_holiday.py
           echo 'job complete!'
