@@ -2,8 +2,6 @@ name: 'Drink water alert'
 on:
   schedule:
     - cron:  '30 7 * * *'  # 15:30 am UTC+8
-  watch:
-    types: [started]
 jobs:
   job1:
     runs-on: ubuntu-latest
