@@ -1,7 +1,7 @@
 import os
 import requests
 import json
-import time
+from datetime import datetime, timedelta, timezone
 
 def main():
     send_url = os.environ["send_url"]
@@ -12,7 +12,7 @@ def main():
 
     res_str = requests.request("GET", good_ninght_url, headers="", data="").text
 
-    now = time.strftime("%H点%M分", time.localtime())
+    now = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(timezone(timedelta(hours=8))).strftime("%H点%M分")
 
     msg = "现在时间" + now + "  不早了，准备休息吧！\n\n" + eval(res_str).get("newslist")[0].get("content")
 

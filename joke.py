@@ -1,7 +1,7 @@
 import os
 import requests
 import json
-import time
+from datetime import datetime, timedelta, timezone
 
 def main():
     send_url = os.environ["send_url"]
@@ -18,7 +18,7 @@ def main():
     joke_content = joke_body.get("content")
     joke = joke_title + "\n" + joke_content
 
-    now = time.strftime("%H点%M分", time.localtime())
+    now = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(timezone(timedelta(hours=8))).strftime("%H点%M分")
     title = now + "午饭时间到! " + "轻松一笑"
 
     msg = title + "\n\n" + joke
