@@ -1,7 +1,7 @@
 import os
 import requests
 import json
-import time
+from datetime import datetime, timedelta, timezone
 
 def main():
     send_url = os.environ["send_url"]
@@ -13,7 +13,7 @@ def main():
 
     holiday_flag = json.loads(holiday_str).get("type").get("type")
 
-    now = time.strftime("%H点%M分", time.localtime())
+    now = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(timezone(timedelta(hours=8))).strftime("%H点%M分")
 
     title = "[久 坐 提 醒]"
 

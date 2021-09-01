@@ -1,7 +1,7 @@
 import os
 import requests
 import json
-import time
+from datetime import datetime, timedelta, timezone
 
 def main():
     send_url = os.environ["send_url"]
@@ -22,7 +22,7 @@ def main():
     tips = json.loads(holiday_str).get("tts")
 
     content = "城市：" + cur_city + "\n天气：" + weather_type + "\n最高温度：" + high_temp + "\n最低温度：" + low_temp + "\n风向：" + wind_type + "\n风力：" + wind_level + "\n提示：" + tips
-    now = time.strftime("%m月%d日", time.localtime()).replace("0", "")
+    now = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(timezone(timedelta(hours=8))).strftime("%H点%M分")
 
     title = "[ " + now + " 天气状况 ]"
     msg = title + "\n\n" + content
