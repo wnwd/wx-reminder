@@ -14,7 +14,7 @@ def main():
 
     now = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(timezone(timedelta(hours=8))).strftime("%H点%M分")
 
-    msg = "现在时间" + now + "  不早了，准备休息吧！\n\n" + eval(res_str).get("newslist")[0].get("content")
+    msg = "[ 早睡提醒 ]" + "\n\n" + "现在时间" + now + "  不早了，洗漱休息吧！\n\n" + eval(res_str).get("newslist")[0].get("content")
 
     data = {
         "sendkey": send_key,

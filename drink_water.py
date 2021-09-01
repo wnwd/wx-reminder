@@ -15,7 +15,7 @@ def main():
 
     now = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(timezone(timedelta(hours=8))).strftime("%H点%M分")
 
-    title = "[久 坐 提 醒]"
+    title = "[ 久坐提醒 ]"
 
     content = "现在时间" + now + "，摸鱼时间到!  你已经坐下很久了，不要忘记喝水哦。起来走几步，划划水，摸摸鱼，再继续工作吧～"
 
