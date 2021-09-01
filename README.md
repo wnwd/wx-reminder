@@ -12,10 +12,11 @@ Have a good day!
 
 ### Qucik Start
 
-1. get your own wechat api.
+1. get your own wechat api. reference:https://github.com/riba2534/wecomchan/tree/main/go-scf
 2. fork this repo
 3. register a tian api account.
 4. set the repo Secret for your forked repo. Such as send key , send url and tian api.
+![image](https://user-images.githubusercontent.com/16299874/131643009-c39c650b-b7b2-49b7-aa53-409c9fc50014.png)
 
 
 ### THANKS
