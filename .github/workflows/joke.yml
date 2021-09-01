@@ -1,7 +1,7 @@
-name: 'Send weather report'
+name: 'Send joke every noon'
 on:
   schedule:
-    - cron:  '30 0 * * *'  # 08:30 am UTC+8
+    - cron:  '30 3 * * *'  # 11:30 am UTC+8
   watch:
     types: [started]
 jobs:
@@ -18,11 +18,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Send weather report
+      - name: Send joke
         id: step_one
         env:
           send_key: ${{ secrets.SEND_KEY }}
           send_url: ${{ secrets.SEND_URL }}
+          tian_api_key: ${{ secrets.TIAN_API_KEY }}
         run: |
-          python weather_report.py
+          python joke.py
           echo 'job complete!'
