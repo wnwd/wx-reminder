@@ -1,7 +1,7 @@
 name: 'Send joke every noon'
 on:
   schedule:
-    - cron:  '30 3 * * *'  # 11:30 am UTC+8
+    - cron:  '25 3 * * *'  # 11:25 am UTC+8
 jobs:
   job1:
     runs-on: ubuntu-latest
